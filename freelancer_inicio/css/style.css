@@ -1,0 +1,306 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+}
+
+
+/* GLOBALES */
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    /* Esto hace que cuando nosotros definamos un cierto tamaño para una caja y le agreguemos un padding, eso no aumente el tamaño de nuestra caja, sino que se mantenga */
+    scroll-snap-type: y mandatory;
+}
+
+*,
+*:before,
+*:after {
+    /* Before y after son seudo elementos, en si no aparecen en el html pero si pueden usarse para el css */
+    box-sizing: inherit;
+}
+
+* {}
+
+body {
+    font-size: 16px;
+    /* 1 rem = 10px  */
+    font-family: 'Montserrat', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+    /* Sirve para hacer el degradado, primero le dijimos hacia donde va a ser el degradado, luego cual es el primer color y luego hasta que color lo tiene que llevar. */
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    /*  Tamaño de la fuente */
+    text-decoration: none;
+    /* Elimina la linea del boton */
+    text-transform: uppercase;
+    /* Pone el texto en mayusculas */
+    font-weight: bold;
+    /* Pone el texto en negritas */
+    border-radius: 1rem;
+    /* Redondea el borde del boton */
+    text-align: center;
+    /* Alinea el texto dentro del boton */
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer;
+    /* Esto hace que cuando pasemos por encima del boton el mouse se convierta en una manito */
+}
+
+@media (min-width: 768) {
+    .boton {
+        width: auto;
+    }
+}
+
+.sombra {
+    -webkit-box-shadow: 4px 0px 33px 12px rgba(0, 0, 0, 0.36);
+    -moz-box-shadow: 4px 0px 33px 12px rgba(0, 0, 0, 0.36);
+    box-shadow: 4px 0px 33px 12px rgba(0, 0, 0, 0.36);
+    background-color: var(--blanco);
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+}
+
+
+/* TIPOGRAFIAS */
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+
+/* TITULOS */
+
+.titulo span {
+    font-size: 2rem;
+}
+
+
+/* UTILIDADES */
+
+.w-100 {
+    width: 100%;
+}
+
+
+/* NAV. PRINCIPAL */
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+
+/* HERO */
+
+.hero {
+    background-image: url(/freelancer_inicio/img/hero.jpg);
+    /* Esto invoca la imagen en nuestro sitio web  */
+    background-repeat: no-repeat;
+    /* Esto hace que la imagen no se repita  */
+    background-size: cover;
+    /*Esto va a hacer que la imagen cubra todo el tamaño del div*/
+    height: 450px;
+    position: relative;
+    /* Siempre el elemento padre tiene que tener posicion relativa para que el hijo tenga posicion absoluta */
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgb( 0 0 0 / 60%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+
+/* Scroll snap */
+
+.servicios,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+
+/* SERVICIOS */
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 1fr = 33.3% */
+        column-gap: 5rem;
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    font-weight: bold;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    /*  Al colocarle borde de 50% se logra un circulo exacto  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.servicio p {
+    line-height: 2;
+    /* Esto sirve para modificar el interlineado del texto */
+    text-align: center;
+    /* Esto es para centrar el texto */
+}
+
+
+/* CONTACTO */
+
+.formulario {
+    background-color: var(--gris);
+    width: min( 60rem, 100%);
+    /* Utiliza el valor mas pequeño, y sino utiliza el 100% */
+    margin: 0 auto;
+    /* Esto se utiliza para centrar el formulario. Siempre para formularios cuyo padre no es un display flex conviene utilizar este metodo */
+    padding: 2rem;
+    border-radius: 1.5rem;
+}
+
+.formulario fieldset {
+    border: none;
+    /* Todo esto elimina el borde que tenia el formulario de contacto por defecto.. */
+}
+
+.formulario legend {
+    color: var(--primario);
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+        /* Separacion de las columnas */
+    }
+    .campo:nth-child(3) {
+        /* Esto selecciona el tercer elemento que tenga la clase campo. Con esto avitamos generar una nueva clase  */
+        grid-column: 1 / 3;
+    }
+    .campo:nth-child(4) {
+        grid-column: 1/3;
+    }
+}
+
+.campo {
+    margin-bottom: 1.5rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 1rem;
+}
+
+.campo textarea {
+    height: 17rem;
+}
+
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+}

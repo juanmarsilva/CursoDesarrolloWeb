@@ -1,0 +1,38 @@
+:root {
+    /* Fuentes para los textos */
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --funteParrafos: 'Open Sans', sans-serif;
+    /* Paleta de colores */
+    -primario: #784D3C;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+
+html {
+    /* Esto es para que cuando pongamos padding o border, eso no afecte el tamaño de nuestros elementos  */
+    box-sizing: border-box;
+    /* Esto es para que un 1rem = 10px */
+    font-size: 62.5%;
+    /* Ambas cosas deberian estar en todos mis proyectos */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    /* Lo que hace inherit es heredar del elemento padre que seria el html */
+}
+
+body {
+    font-family: var(--funteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+    /* Interlineado, para los blogs esta bueno para que se pueda leer bien todo */
+}
+
+
+/** Globales **/
+
+.contenedor {
+    max-width: 120rem;
+}
